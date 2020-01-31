@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html>
+    <!-- title -->
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>东京之旅 · 离久</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.7);
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180311" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" type="text/css" href="/css/mobile.css?v=20180311" media="(max-width: 980px)">
+    <link rel="icon" href="/assets/cat.ico">
+    <script>
+  // load webfont-loader async, and add callback function
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+  
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+      if (postIntroTags) {
+        postIntroTags.classList.add('post-fade-in');
+      }
+      if (postIntroMeat) {
+        postIntroMeat.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  async("https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", asyncCb)
+</script>
+    <script>
+        (function (w) {
+            "use strict";
+            // rel=preload support test
+            if (!w.loadCSS) {
+                w.loadCSS = function () { };
+            }
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function () {
+                var ret;
+                try {
+                    ret = w.document.createElement("link").relList.supports("preload");
+                } catch (e) {
+                    ret = false;
+                }
+                return function () {
+                    return ret;
+                };
+            })();
+
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function (link) {
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
+
+                function enableStylesheet() {
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if (link.addEventListener) {
+                    link.addEventListener("load", enableStylesheet);
+                } else if (link.attachEvent) {
+                    link.attachEvent("onload", enableStylesheet);
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function () {
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout(enableStylesheet, 3000);
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function () {
+                // double check this to prevent external calls from running
+                if (rp.support()) {
+                    return;
+                }
+                var links = w.document.getElementsByTagName("link");
+                for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute("data-loadcss")) {
+                        // prevent rerunning on link
+                        link.setAttribute("data-loadcss", true);
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle(link);
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if (!rp.support()) {
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval(rp.poly, 500);
+                if (w.addEventListener) {
+                    w.addEventListener("load", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                } else if (w.attachEvent) {
+                    w.attachEvent("onload", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                }
+            }
+            // commonjs
+            if (typeof exports !== "undefined") {
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }(typeof global !== "undefined" ? global : this));
+    </script>
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Remeber</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">东京之旅</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">Remeber</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="height:50vh;">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            东京之旅
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="生活">生活</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2020/01/31</span>
+                
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe602;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                    <span class="shareText">Share</span>
+                    <ul class="shareList">
+                        <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                            <div class="share-qrcode"></div>
+                        </li>
+                        <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                        <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                        <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                        <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                    </ul>
+                </span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>本来这篇博客应该早点发出来的，但由于我的拖延症（很重的那种🐶），所以现在才有空总结一下。</p>
+<p>旅行时间是 12月18日 - 12月22日 。18号8点55分飞机，下午1点到东京，22号下午3点飞机，晚上7点到广州。</p>
+<p>对于我这种比较懒出门的人，旅行肯定带有明确目的性。这次旅行主要是为了看演唱会 ～ 😆😆😆</p>
+<h2 id="12月18日-初探东京"><a href="#12月18日-初探东京" class="headerlink" title="12月18日 初探东京"></a>12月18日 初探东京</h2><p>早上5点的广州，天都还没亮，我就要起床了。</p>
+<p>在前一天我预约了一辆网约车去体育西路地铁站，然后坐三号线到机场北。</p>
+<p>不知道是早上的原因还是旅行淡季的原因，安检人数不多。我很快到了候机区。</p>
+<h3 id="机场"><a href="#机场" class="headerlink" title="机场"></a>机场</h3><img src="/2020/01/31/东京之旅/IMG_6006.png" title="IMG_6006">
+
+<img src="/2020/01/31/东京之旅/IMG_5604.png" title="IMG_5604">
+
+<h3 id="起飞"><a href="#起飞" class="headerlink" title="起飞"></a>起飞</h3><p>8点55分，准时起飞</p>
+<img src="/2020/01/31/东京之旅/IMG_5615.png" title="IMG_5615">
+
+<p>日本千叶县木更津市人工岛 ———— 海萤火虫停车区</p>
+<img src="/2020/01/31/东京之旅/IMG_5617.png" title="IMG_5617">
+
+<h3 id="到达日本"><a href="#到达日本" class="headerlink" title="到达日本"></a>到达日本</h3><p>排队过关</p>
+<img src="/2020/01/31/东京之旅/IMG_5619.png" title="IMG_5619">
+
+<h3 id="去往酒店"><a href="#去往酒店" class="headerlink" title="去往酒店"></a>去往酒店</h3><p>Google Map 查路线，换乘一次就可以到了。</p>
+<img src="/2020/01/31/东京之旅/IMG_5618.png" title="IMG_5618">
+
+<p>然而我一开始就上错了电车，我坐反方向了……</p>
+<p>大家如果从羽田机场进市区，千万不要去到下图地方坐电车（错误示范）。</p>
+<img src="/2020/01/31/东京之旅/IMG_5620.png" title="IMG_5620">
+
+<p>电车上，感觉大家都很疲倦的样子，可能是因为我在飞机上睡够了。</p>
+<img src="/2020/01/31/东京之旅/IMG_5621.png" title="IMG_5621">
+
+<p>几经波折，终于抵达了酒店。</p>
+<p>这次我住的是东京巨蛋酒店（因为演唱会的会场就在东京巨蛋，所以就选了它）。</p>
+<img src="/2020/01/31/东京之旅/IMG_5623.png" title="IMG_5623">
+
+<img src="/2020/01/31/东京之旅/IMG_5626.png" title="IMG_5626">
+
+<p>4晚3600元，我感觉还可以，但小伙伴说有点小贵，可能我第一次来不知道物价吧……</p>
+<h3 id="逛街"><a href="#逛街" class="headerlink" title="逛街"></a>逛街</h3><p>去到酒店是已经下午3点，我约了一个在日本工作的朋友，让他带我出去随便逛逛。</p>
+<h4 id="秋叶原"><a href="#秋叶原" class="headerlink" title="秋叶原"></a>秋叶原</h4><p>秋叶原，传说中的宅男胜地。和动漫、偶像、电子游戏有关的在这里都可以找到。</p>
+<p>哦对了，还有传说中的女仆咖啡厅……不过我没敢去，太羞耻了。</p>
+<p>不过我其实对这些都不太懂，所以秋叶原也没有引起我很大的兴趣，逗留了一会儿就走了。</p>
+<img src="/2020/01/31/东京之旅/IMG_5628.png" title="IMG_5628">
+
+<img src="/2020/01/31/东京之旅/IMG_5629.png" title="IMG_5629">
+
+<img src="/2020/01/31/东京之旅/IMG_5630.png" title="IMG_5630">
+
+<h4 id="涉谷"><a href="#涉谷" class="headerlink" title="涉谷"></a>涉谷</h4><p>涉谷，日本最潮流的地方之一。这里真的是吃喝玩乐俱全……</p>
+<p>听说是世界上最繁忙的十字路口。</p>
+<img src="/2020/01/31/东京之旅/IMG_5632.png" title="IMG_5632">
+
+<p>109大厦。</p>
+<img src="/2020/01/31/东京之旅/IMG_5633.png" title="IMG_5633">
+
+<p>在涉谷的步行街，试了一次 silent siren 代言的天下一品。</p>
+<img src="/2020/01/31/东京之旅/IMG_6008.png" title="IMG_6008">
+
+<p>一个套餐1300+日元，折合人民币100+，感觉和香港差不多的物价。</p>
+<img src="/2020/01/31/东京之旅/IMG_5637.png" title="IMG_5637">
+
+<p>去了 eggman live house，那天有演出彩排，所以就没有多拍，就拍了一下艺人签名的柜子就走了。</p>
+<img src="/2020/01/31/东京之旅/IMG_5639.png" title="IMG_5639">
+
+<p>我十分喜欢日本这种 live house 文化，是一种很好的音乐氛围。</p>
+<p>然后一直沿路往上走，走到代代木公园的入口走廊。刚好那晚有活动。</p>
+<img src="/2020/01/31/东京之旅/IMG_5644.png" title="IMG_5644">
+
+<p>活动名为“青之洞窟”。</p>
+<img src="/2020/01/31/东京之旅/IMG_5646.png" title="IMG_5646">
+
+<p>然后随同的朋友就走了，我开始一个人的闲（xia）逛（zou）。</p>
+<p>探店 Geki Rock，一家卖小众摇滚乐队文化潮牌的衣服。</p>
+<img src="/2020/01/31/东京之旅/IMG_5648.png" title="IMG_5648">
+
+<p>里面的衣服都有点贵，1000+随处可见……可能是我太穷了吧。</p>
+<h4 id="新宿"><a href="#新宿" class="headerlink" title="新宿"></a>新宿</h4><p>晚上9点多，还没有睡意，想去“传说中”新宿的歌舞伎町一番街逛一圈。</p>
+<p>跟着地图，随着人流走。</p>
+<img src="/2020/01/31/东京之旅/IMG_5658.png" title="IMG_5658">
+
+<img src="/2020/01/31/东京之旅/IMG_5660.png" title="IMG_5660">
+
+<p>歌舞伎町一番街果然是很“特色”。</p>
+<p>街道的广播里宣传着呼吁民众不要参与卖淫活动。</p>
+<p>街道上每隔一段路就有一些黑人，不知道是请来的保安还是从事“其它”活动的。</p>
+<p>各种特色的按摩店。</p>
+<img src="/2020/01/31/东京之旅/IMG_5667.png" title="IMG_5667">
+
+<p>还有传说中的牛郎店。</p>
+<p>日本的女性会觉得金发爱打扮的牛郎很帅气。</p>
+<img src="/2020/01/31/东京之旅/IMG_5661.png" title="IMG_5661">
+
+<p>离开歌舞伎町一番街之后，我见到了传说中的《新宿天鹅》电影情节。</p>
+<img src="/2020/01/31/东京之旅/IMG_5665.png" title="IMG_5665">
+
+<p>图中最前面的那个拿着香烟的男子，眼睛所看过去的地方，是他叫的一个黄毛小弟去问一个女性卖不卖春。</p>
+<p>意思就是他们是专门负责帮卖淫女性做中间人的。</p>
+<p>我本来以为这种电影里面的情节，居然真实发生在我的眼前，实在难以置信。</p>
+<p>不过按照我朋友的说法是，日本卖淫活动实在是很普遍，政府想管也管不住。</p>
+<img src="/2020/01/31/东京之旅/IMG_5668.png" title="IMG_5668">
+
+<p>离开新宿时，看到大屏幕的音乐mv，再次感叹日本的流行音乐氛围确实好。</p>
+<p>回到酒店附近时已经11点多了，拍了一下演唱会的会场。</p>
+<img src="/2020/01/31/东京之旅/IMG_5680.png" title="IMG_5680">
+
+<p>在酒店楼下买了两瓶水果酒，带着一点酒意就入睡了。</p>
+<h2 id="12月19日-12月20日-演唱会日"><a href="#12月19日-12月20日-演唱会日" class="headerlink" title="12月19日 - 12月20日 演唱会日"></a>12月19日 - 12月20日 演唱会日</h2><p>这两天都是看演唱会的时间，没怎么出去玩。</p>
+<p>Day 1是普通的巨蛋演唱会，Day 2是男祭（基本上都是男性观众的演唱会）。</p>
+<h3 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h3><p>上午9点，会场的限定周边卖场已经排起了长队。</p>
+<img src="/2020/01/31/东京之旅/IMG_5687.png" title="IMG_5687">
+
+<img src="/2020/01/31/东京之旅/IMG_5691.png" title="IMG_5691">
+
+<p>那天没有阳光，下着雨，10度的东京感觉就像零下一样。</p>
+<p>我穿了一件毛衣、一件大衣，还是让我冷得直打哆嗦。</p>
+<p>最后我还是买到了想要的周边，特别是这件 NILøS 的联名，我个人特别喜欢。</p>
+<img src="/2020/01/31/东京之旅/IMG_5695.png" title="IMG_5695">
+
+<p>我顺便还帮歌迷壳壳酱买了周边。</p>
+<p>演唱会4点进场，而我回到酒店已经快3点了，所以在等壳壳过来的同时还顺便就酒店暖一暖。</p>
+<p>PS：壳壳是一个b站的 vlog up主。有点佩服她可以把生活的小事整理得有条有序、很有仪式感。感觉能把自己生活细节记录下来的人很厉害。</p>
+<p>给完周边，差不多4点。该进场了，此时东京已经开始入夜了。是的，4点入夜。一直生活在广州的我觉得这很不可思议。</p>
+<img src="/2020/01/31/东京之旅/IMG_5709.png" title="IMG_5709">
+
+<p>在会场的门口，中二的说了一句：“人生的答案都在这里了 ！” 😂😂😂</p>
+<p>座位很好找，如果你不知道的话把票给工作人员看就可以了。</p>
+<p>坐下之后发现一排都是海外的饭，估计是海外 fans club 单独一排吧。不过香港台湾的居多。</p>
+<p>由于日本演唱会基本严禁拍照，演唱会的详情我就拍不了了。</p>
+<p>拍了一场座位看舞台方向的照片，但刚拍完就被工作人员说禁止拍照……没想到这么严。</p>
+<p>不过内场没有站席，确实是让我感到比较意外。</p>
+<img src="/2020/01/31/东京之旅/IMG_5711.png" title="IMG_5711">
+
+<p>UVERworld的演唱会还是一如既往的稳。</p>
+<p>虽说我的内心没有很激动很激动很激动的感觉，但听到 《在るべき形》、《ALL ALONE》、《PRAYING RUN》、《7日目の決意》和《MONDO PIECE》时，我还是忍不住留下了眼泪。</p>
+<p>能听到UVERworld的歌，真的真的真的是太好了。</p>
+<p>演唱会结束后，听完BGM《LONE WOLF》才离场。</p>
+<img src="/2020/01/31/东京之旅/IMG_5713.png" title="IMG_5713">
+
+<p>去便利店买点吃的，结束了Day 1。</p>
+<h3 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h3><p>Day 2的行程和Day 1差不多。</p>
+<p>早上去排限定周边，依旧很多人。不过天气很好，排队时感觉也很舒适。</p>
+<img src="/2020/01/31/东京之旅/IMG_5739.png" title="IMG_5739">
+
+<img src="/2020/01/31/东京之旅/IMG_5741.png" title="IMG_5741">
+
+<p>男祭周边红色衣服背后写了一句话“No more hero what you wanna be”，我很喜欢这句话，感觉十分热血。</p>
+<p>买完周边之后，趁着天气好，绕着东京巨蛋走了一圈。</p>
+<img src="/2020/01/31/东京之旅/IMG_5747.png" title="IMG_5747">
+
+<img src="/2020/01/31/东京之旅/IMG_5756.png" title="IMG_5756">
+
+<img src="/2020/01/31/东京之旅/IMG_5763.png" title="IMG_5763">
+
+<img src="/2020/01/31/东京之旅/IMG_5769.png" title="IMG_5769">
+
+<img src="/2020/01/31/东京之旅/IMG_5770.png" title="IMG_5770">
+
+<p>还顺便逛了一下超市。</p>
+<img src="/2020/01/31/东京之旅/IMG_5772.png" title="IMG_5772">
+
+<img src="/2020/01/31/东京之旅/IMG_5773.png" title="IMG_5773">
+
+<p>还买了一杯珍珠奶茶，我也不知道为什么日本人流行喝珍珠奶茶……</p>
+<p>PS：支付宝好评 ～ 虽说我用的是硬币。</p>
+<img src="/2020/01/31/东京之旅/IMG_5775.png" title="IMG_5775">
+
+<p>巨蛋游乐园 ～</p>
+<img src="/2020/01/31/东京之旅/IMG_5776.png" title="IMG_5776">
+
+<p>逛完一圈后，休息一下，就要入场了。</p>
+<img src="/2020/01/31/东京之旅/IMG_5780.png" title="IMG_5780">
+
+<p>今天海外的饭也是一排，我隔壁海外饭黄种人，吓到我了。不过还是很开心，最后《MONDO PIECE》的时候和他肩搭肩了😂😂😂气氛很好。</p>
+<img src="/2020/01/31/东京之旅/IMG_0534.png" title="IMG_0534">
+
+<p>男性观众的热情还是高啊 ！结束之后我们还迟迟都不走。 </p>
+<img src="/2020/01/31/东京之旅/IMG_3412.png" title="IMG_3412">
+
+<p>出场馆之后，联系了歌迷jiro君、saya君和OO君（😂因为我也不知道他的称呼）一起去了浅草桥附近的居酒屋～～～</p>
+<p>虽说居酒屋要喝酒，但不喜欢酒精的我选择了橙汁……不过炸鸡真的很好吃。</p>
+<img src="/2020/01/31/东京之旅/IMG_8806.png" title="IMG_8806">
+
+<p>我们几个歌迷们一起聊天，不知不觉聊到了凌晨3点，实在是太多话题了。能认识到他们实在是太好了 ！</p>
+<p>凌晨3点,没有电车回去了，我只能从浅草桥走回东京巨蛋。</p>
+<p>空无一人的街道。</p>
+<img src="/2020/01/31/东京之旅/IMG_5866.png" title="IMG_5866">
+
+<img src="/2020/01/31/东京之旅/IMG_5795.png" title="IMG_5795">
+
+<img src="/2020/01/31/东京之旅/IMG_5799.png" title="IMG_5799">
+
+<p>回到酒店，太困了，躺下就睡着了。就这样结束了两天演唱会的日子Zzz</p>
+<h2 id="12月21日-独自游玩"><a href="#12月21日-独自游玩" class="headerlink" title="12月21日 独自游玩"></a>12月21日 独自游玩</h2><p>早上起来，在简单梳洗之后已经11点。</p>
+<p>由于临近中午，打算出去觅食。这时，我想到传说中的网红旅游地点 —— 筑地市场。</p>
+<h3 id="筑地市场"><a href="#筑地市场" class="headerlink" title="筑地市场"></a>筑地市场</h3><p>一去到筑地市场，我惊呆了。这也太多人了吧……</p>
+<img src="/2020/01/31/东京之旅/IMG_5386.png" title="IMG_5386">
+
+<img src="/2020/01/31/东京之旅/IMG_0924.png" title="IMG_0924">
+
+<p>传说中的网红玉子烧。</p>
+<img src="/2020/01/31/东京之旅/IMG_2012.png" title="IMG_2012">
+
+<p>人太多了，根本吃不了东西。于是我转身前往银座</p>
+<h3 id="银座"><a href="#银座" class="headerlink" title="银座"></a>银座</h3><img src="/2020/01/31/东京之旅/IMG_1817.png" title="IMG_1817">
+
+<p>银座果然有一种很繁华的气息，一开始我也不知道我自己一个人能不能在这里找到吃的。</p>
+<p>由于街上的人实在太多，我还是不走大马路了。</p>
+<img src="/2020/01/31/东京之旅/IMG_3311.png" title="IMG_3311">
+
+<p>这里前面左转有一条楼梯直通负一层，就是一家店的入口。由于太饿了，忘记给店拍照了……</p>
+<p>店名叫《鱼游》，是吃普通的寿司、凉面、刺身的。</p>
+<p>偷拍捏寿司的老师傅 ～ </p>
+<img src="/2020/01/31/东京之旅/IMG_2108.png" title="IMG_2108">
+
+<p>点了一个寿司拼盘，这里一共1350日元（90人民币左右），感觉挺不错👍</p>
+<img src="/2020/01/31/东京之旅/IMG_3571.png" title="IMG_3571">
+
+<p>但芥末居然是加在寿司里面的 ！！！这一点让我很不习惯，因为我本人不太喜欢吃芥末。</p>
+<p>吃完后就出发前往我一直很想去的地方 —— 新宿御苑。</p>
+<h3 id="新宿御苑"><a href="#新宿御苑" class="headerlink" title="新宿御苑"></a>新宿御苑</h3><p>跟着 Google Map，坐电车出站走不久就到了新宿御苑。</p>
+<img src="/2020/01/31/东京之旅/IMG_1211.png" title="IMG_1211">
+
+<p>需要买门票，不过十分便宜，具体多少已经忘记了。</p>
+<p>由于已经是冬天的季节，树叶已经开始掉落了，有些树的叶子已经掉光。</p>
+<p>看来我来的真不是时候呀……</p>
+<img src="/2020/01/31/东京之旅/IMG_5820.png" title="IMG_5820">
+
+<img src="/2020/01/31/东京之旅/IMG_5821.png" title="IMG_5821">
+
+<p>据说，日本的家庭喜欢白天带孩子出去公园里面玩。看来是这样的。</p>
+<img src="/2020/01/31/东京之旅/IMG_5840.png" title="IMG_5840">
+
+<p>还有许多欧美人来这里观光。</p>
+<img src="/2020/01/31/东京之旅/IMG_5824.png" title="IMG_5824">
+
+<p>说起来很奇怪，虽然在广州、我家附近也有一个很大的公园。但里面给我的感觉很特别。</p>
+<p>可能是因为这个公园带有点法式庭院风格吧。从公园内看着外面的高楼大厦，觉得十分的不可思议。</p>
+<img src="/2020/01/31/东京之旅/IMG_5827.png" title="IMG_5827">
+
+<img src="/2020/01/31/东京之旅/IMG_5829.png" title="IMG_5829">
+
+<img src="/2020/01/31/东京之旅/IMG_5831.png" title="IMG_5831">
+
+<p>说实话，我有点爱上了这里，里面给我一种很休闲，很安逸的感觉。</p>
+<p>我坐在板凳上，看着眼前的风景。心里想着“如果居住在附近真好呀”。</p>
+<img src="/2020/01/31/东京之旅/IMG_5833.png" title="IMG_5833">
+
+<img src="/2020/01/31/东京之旅/IMG_5834.png" title="IMG_5834">
+
+<p>板凳的背后是《言叶之庭》的亭子，这是我来这里的最主要原因。</p>
+<img src="/2020/01/31/东京之旅/IMG_5836.png" title="IMG_5836">
+
+<p>在新海诚的作品中，我最喜欢是《言叶之庭》。其中这里，就是男女主角最初相遇的亭子。</p>
+<p>我坐在这个亭子的附近，看着许多情侣恋人在我面前走过。</p>
+<p>“希望他们能够幸福的一起生活下去。”虽然我一个陌生人说出口很奇怪，但我此时此刻是真心祝福。</p>
+<p>在新宿御苑里，我回想起了以往很多美好的事情。</p>
+<p>在日常生活中，我们常常会因为烦恼的事情而忘记了自己所经历过的美好。</p>
+<p>但在这里，我却全部都回想起来。</p>
+<p>下一次来东京，我一定会再来。</p>
+<h3 id="原宿"><a href="#原宿" class="headerlink" title="原宿"></a>原宿</h3><p>在新宿御苑呆了2个小时后，我启程前往原宿。</p>
+<img src="/2020/01/31/东京之旅/IMG_5841.png" title="IMG_5841">
+
+<p>据说原宿也是一个潮流之都，我确实见识到了。</p>
+<p>常见的 Nike、Adidas、Air Jordan这里都有。</p>
+<p>发张我一个朋友很喜欢的“中指猫”。</p>
+<img src="/2020/01/31/东京之旅/IMG_5843.png" title="IMG_5843">
+
+<p>还走了一转原宿最火的竹下通。</p>
+<img src="/2020/01/31/东京之旅/IMG_5844.png" title="IMG_5844">
+
+<p>PS：里面有可丽饼，我好想吃……可惜太多人排队了。</p>
+<p>来到原宿，当然要去周杰伦《说好不哭》里面的奶茶店打打卡啦 ～ 哈哈哈</p>
+<p>店名就叫 machi machi，地图就能搜得到。店内还播着MV。</p>
+<img src="/2020/01/31/东京之旅/IMG_5852.png" title="IMG_5852">
+
+<p>很多人都是因为MV慕名而来，估计日本人会感觉很奇怪吧。</p>
+<p>拿着热乎乎的奶茶在店外天台喝，看着十字路口，感觉还挺写意的。</p>
+<img src="/2020/01/31/东京之旅/IMG_5858.png" title="IMG_5858">
+
+<p>接着从原宿一路走去涉谷。</p>
+<p>见识到了传说中的 WeWork ，感觉在里面工作真的很气派。</p>
+<img src="/2020/01/31/东京之旅/IMG_5861.png" title="IMG_5861">
+
+<p>许许多多的潮牌店。</p>
+<img src="/2020/01/31/东京之旅/IMG_5864.png" title="IMG_5864">
+
+<img src="/2020/01/31/东京之旅/IMG_5865.png" title="IMG_5865">
+
+<p>与中国不同，中国一般大牌子都会在商场里面，但日本大多都是路面的小铺。</p>
+<p>还见到了最近中国明星常穿的 AMBUSH 。</p>
+<img src="/2020/01/31/东京之旅/IMG_5867.png" title="IMG_5867">
+
+<p>回到涉谷，还逛了一下第一天忘记逛的CD店。</p>
+<p>一楼就摆着新专辑《UNSER》。看来确实卖得不错 ～～～</p>
+<img src="/2020/01/31/东京之旅/IMG_5874.png" title="IMG_5874">
+
+<p>还看到了欅坂46，我挺喜欢听她们的歌。虽说我一般只听乐队，但她们的歌曲真的是与众不同，特别丧。</p>
+<p>不过现在（2020年1月31日）得知核心成员要离开团体了，估计歌曲风格会转变吧。</p>
+<img src="/2020/01/31/东京之旅/IMG_5878.png" title="IMG_5878">
+
+<p>还找到了 MY FIRST STORY 的新碟《无告》。MY FIRST STORY 我也是特别喜欢。</p>
+<img src="/2020/01/31/东京之旅/IMG_5882.png" title="IMG_5882">
+
+<p>逛完CD店，时间也差不多了，我就回酒店休息了。</p>
+<p>在回酒店的路上买了一个麦当劳，和中国的麦当劳不一样，真的太好吃，太让我惊喜了。</p>
+<p>回到酒店已经9点了，休息一会儿后，我还要去见一个老同学。</p>
+<p>晚上11点，我去到了新桥一家居酒屋。</p>
+<h2 id="12月22日-叙旧、离开"><a href="#12月22日-叙旧、离开" class="headerlink" title="12月22日 叙旧、离开"></a>12月22日 叙旧、离开</h2><h3 id="叙旧"><a href="#叙旧" class="headerlink" title="叙旧"></a>叙旧</h3><p>这位老同学我真的貌似有10年已经没见过，那就是毕业了之后没联系过的那种。</p>
+<p>不过说起来很奇怪，我其实当年和她并没有这么熟，可以说是基本没说过话的那种。</p>
+<p>然而那一晚我们却很能聊，聊到了凌晨4点。</p>
+<p>我现在回想起来，真的很不可思议，因为我本身不是一个很能聊天的人。特别是对于不熟的人。</p>
+<p>那晚聊了许多，关于工作、关于生活。</p>
+<p>令我很意外的一件事是，她原来一周上7天班。</p>
+<p>也就是说她叙旧完凌晨回到家休息3、4个小时就要起床上班。</p>
+<p>感觉她真的非常不可思议。如果让我一周工作满7天，我可能会立刻抓狂。</p>
+<p>日本的时薪相比于国内还是高呀，她的工作时长估计已经让她的薪资到达了“土豪”级别吧，哈哈哈。</p>
+<p>她说她想再日本买间房子。这是个很远大的梦想呢，在我看来，毕竟东京的房价也不便宜。</p>
+<p>聊了一晚上，我感觉我重新认识了这位老同学。她是个很有趣的人。</p>
+<p>就这样，简单的叙旧之后。凌晨五点，我搭乘第一班三田线回到了酒店。</p>
+<img src="/2020/01/31/东京之旅/IMG_5886.png" title="IMG_5886">
+
+<h3 id="离开"><a href="#离开" class="headerlink" title="离开"></a>离开</h3><p>睡了3、4个小时，早上10点，要准备收拾了。</p>
+<img src="/2020/01/31/东京之旅/IMG_5887.png" title="IMG_5887">
+
+<p>楼下7-11便利店买了个蛋糕吃。适逢快圣诞节，随意庆祝了一下。</p>
+<p>东京巨蛋酒店有巴士直通机场，提前一天预约就可以了。这里要大赞一下酒店的员工，我那小学生英语他们也听得懂。</p>
+<p>不过下午登机安检的人真的很多，我已经提早了两个小时，候机时已经准备快要上飞机了。</p>
+<p>下午三点，准时起飞回广州了。</p>
+<img src="/2020/01/31/东京之旅/IMG_5893.png" title="IMG_5893">
+
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>其实这次来东京，除了演唱会以外，基本所有的行程都是临时安排。</p>
+<p>没有去东京铁塔、晴空塔、浅草寺这些网红打卡点。毕竟想都知道太多人了。筑地市场就是一个很好的例子。</p>
+<p>对我而言，还是比较喜欢感受一下当地人的生活。</p>
+<p>去过几个东京人们常去的地点，确实感受到了他们的文化。</p>
+<p>特别是新宿御苑，确实让我十分喜欢。</p>
+<p>看一场激动人心的演唱会，和歌迷们愉快的聚餐聊天。</p>
+<p>最主要的是还能见到好久不见的朋友。</p>
+<p>我感觉我下次还会再来东京，因为我还是很喜欢这里音乐、风景、美食、人文气息。</p>
+<p>还能遇到有共同爱好的歌迷们。</p>
+<p>还有为自己人生梦想奋斗的朋友们。</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/12/15/出发前去东京的准备/" title="出发前去东京的准备">
+                    <div class="prevTitle">出发前去东京的准备</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <!-- <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div> -->
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <!-- <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span>
+        </span> -->
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#12月18日-初探东京"><span class="toc-number">1.</span> <span class="toc-text">12月18日 初探东京</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#机场"><span class="toc-number">1.1.</span> <span class="toc-text">机场</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#起飞"><span class="toc-number">1.2.</span> <span class="toc-text">起飞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#到达日本"><span class="toc-number">1.3.</span> <span class="toc-text">到达日本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#去往酒店"><span class="toc-number">1.4.</span> <span class="toc-text">去往酒店</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逛街"><span class="toc-number">1.5.</span> <span class="toc-text">逛街</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#秋叶原"><span class="toc-number">1.5.1.</span> <span class="toc-text">秋叶原</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#涉谷"><span class="toc-number">1.5.2.</span> <span class="toc-text">涉谷</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新宿"><span class="toc-number">1.5.3.</span> <span class="toc-text">新宿</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12月19日-12月20日-演唱会日"><span class="toc-number">2.</span> <span class="toc-text">12月19日 - 12月20日 演唱会日</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-1"><span class="toc-number">2.1.</span> <span class="toc-text">Day 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-2"><span class="toc-number">2.2.</span> <span class="toc-text">Day 2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12月21日-独自游玩"><span class="toc-number">3.</span> <span class="toc-text">12月21日 独自游玩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#筑地市场"><span class="toc-number">3.1.</span> <span class="toc-text">筑地市场</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#银座"><span class="toc-number">3.2.</span> <span class="toc-text">银座</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新宿御苑"><span class="toc-number">3.3.</span> <span class="toc-text">新宿御苑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原宿"><span class="toc-number">3.4.</span> <span class="toc-text">原宿</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12月22日-叙旧、离开"><span class="toc-number">4.</span> <span class="toc-text">12月22日 叙旧、离开</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#叙旧"><span class="toc-number">4.1.</span> <span class="toc-text">叙旧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离开"><span class="toc-number">4.2.</span> <span class="toc-text">离开</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-number">5.</span> <span class="toc-text">最后</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 11 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/31</span><a class="archive-post-title" href="/2020/01/31/东京之旅/">东京之旅</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href="/2019/12/15/出发前去东京的准备/">出发前去东京的准备</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href="/2019/11/20/生日/">生日</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href="/2019/11/07/关于爱情观、婚姻观/">关于爱情观、婚姻观</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href="/2019/09/26/一个月的996后/">一个月的996后</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href="/2019/09/14/能力、不安、迷茫/">能力、不安、迷茫</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/06</span><a class="archive-post-title" href="/2019/09/06/新环境/">新环境</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/活着/">活着</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/11</span><a class="archive-post-title" href="/2019/06/11/朋友/">朋友</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/家/">家</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href="/2019/05/24/前言/">前言</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="生活"><span class="iconfont-archer">&#xe606;</span>生活</span>
+    
+        <span class="sidebar-tag-name" data-tags="人生阅读"><span class="iconfont-archer">&#xe606;</span>人生阅读</span>
+    
+        <span class="sidebar-tag-name" data-tags="前言"><span class="iconfont-archer">&#xe606;</span>前言</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="生活"><span class="iconfont-archer">&#xe60a;</span>生活</span>
+    
+        <span class="sidebar-category-name" data-categories="人生阅读"><span class="iconfont-archer">&#xe60a;</span>人生阅读</span>
+    
+        <span class="sidebar-category-name" data-categories="前言"><span class="iconfont-archer">&#xe60a;</span>前言</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: '/',
+        author: 'Crimson'
+    }
+</script>
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+    
+    </body>
+</html>
+
+

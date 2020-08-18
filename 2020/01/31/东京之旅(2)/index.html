@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html>
+    <!-- title -->
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>东京之旅(2) · 离久</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.7);
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180311" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" type="text/css" href="/css/mobile.css?v=20180311" media="(max-width: 980px)">
+    <link rel="icon" href="/assets/cat.ico">
+    <script>
+  // load webfont-loader async, and add callback function
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+  
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+      if (postIntroTags) {
+        postIntroTags.classList.add('post-fade-in');
+      }
+      if (postIntroMeat) {
+        postIntroMeat.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  async("https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", asyncCb)
+</script>
+    <script>
+        (function (w) {
+            "use strict";
+            // rel=preload support test
+            if (!w.loadCSS) {
+                w.loadCSS = function () { };
+            }
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function () {
+                var ret;
+                try {
+                    ret = w.document.createElement("link").relList.supports("preload");
+                } catch (e) {
+                    ret = false;
+                }
+                return function () {
+                    return ret;
+                };
+            })();
+
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function (link) {
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
+
+                function enableStylesheet() {
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if (link.addEventListener) {
+                    link.addEventListener("load", enableStylesheet);
+                } else if (link.attachEvent) {
+                    link.attachEvent("onload", enableStylesheet);
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function () {
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout(enableStylesheet, 3000);
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function () {
+                // double check this to prevent external calls from running
+                if (rp.support()) {
+                    return;
+                }
+                var links = w.document.getElementsByTagName("link");
+                for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute("data-loadcss")) {
+                        // prevent rerunning on link
+                        link.setAttribute("data-loadcss", true);
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle(link);
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if (!rp.support()) {
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval(rp.poly, 500);
+                if (w.addEventListener) {
+                    w.addEventListener("load", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                } else if (w.attachEvent) {
+                    w.attachEvent("onload", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                }
+            }
+            // commonjs
+            if (typeof exports !== "undefined") {
+                exports.loadCSS = loadCSS;
+            }
+            else {
+                w.loadCSS = loadCSS;
+            }
+        }(typeof global !== "undefined" ? global : this));
+    </script>
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">离久</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">东京之旅(2)</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">离久</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="height:50vh;">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            东京之旅(2)
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="生活">生活</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2020/01/31</span>
+                
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe602;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                    <span class="shareText">Share</span>
+                    <ul class="shareList">
+                        <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                            <div class="share-qrcode"></div>
+                        </li>
+                        <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                        <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                        <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                        <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                    </ul>
+                </span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="12月19日-12月20日-演唱会日"><a href="#12月19日-12月20日-演唱会日" class="headerlink" title="12月19日 - 12月20日 演唱会日"></a>12月19日 - 12月20日 演唱会日</h2><p>这两天都是看演唱会的时间，没怎么出去玩。</p>
+<p>Day 1是普通的巨蛋演唱会，Day 2是男祭（基本上都是男性观众的演唱会）。</p>
+<h3 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h3><p>上午9点，会场的限定周边卖场已经排起了长队。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_5687.jpeg" title="IMG_5687">
+
+<img src="/2020/01/31/东京之旅(2)/IMG_5691.jpeg" title="IMG_5691">
+
+<p>那天没有阳光，下着雨，10度的东京感觉就像零下一样。</p>
+<p>我穿了一件毛衣、一件大衣，还是让我冷得直打哆嗦。</p>
+<p>最后我还是买到了想要的周边，特别是这件 NILøS 的联名，我个人特别喜欢。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_5695.jpeg" title="IMG_5695">
+
+<p>我顺便还帮歌迷壳壳酱买了周边。</p>
+<p>演唱会4点进场，而我回到酒店已经快3点了，所以在等壳壳过来的同时还顺便就酒店暖一暖。</p>
+<p>给完周边，差不多4点。该进场了，此时东京已经开始入夜了。是的，4点入夜。一直生活在广州的我觉得这很不可思议。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_5709.jpeg" title="IMG_5709">
+
+<p>在会场的门口，中二的说了一句：“人生的答案都在这里了 ！” 😂😂😂</p>
+<p>座位很好找，如果你不知道的话把票给工作人员看就可以了。</p>
+<p>坐下之后发现一排都是海外的饭，估计是海外 fans club 单独一排吧。不过香港台湾的居多。</p>
+<p>由于日本演唱会基本严禁拍照，演唱会的详情我就拍不了了。</p>
+<p>拍了一场座位看舞台方向的照片，但刚拍完就被工作人员说禁止拍照……没想到这么严。</p>
+<p>不过内场没有站席，确实是让我感到比较意外。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_5711.jpeg" title="IMG_5711">
+
+<p>UVERworld的演唱会还是一如既往的稳。</p>
+<p>虽说我的内心没有很激动很激动很激动的感觉，但听到 《在るべき形》、《ALL ALONE》、《PRAYING RUN》、《7日目の決意》和《MONDO PIECE》时，我还是忍不住留下了眼泪。</p>
+<p>能听到UVERworld的歌，真的真的真的是太好了。</p>
+<p>演唱会结束后，听完BGM《LONE WOLF》才离场。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_5713.jpeg" title="IMG_5713">
+
+<p>去便利店买点吃的，结束了Day 1。</p>
+<h3 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h3><p>Day 2的行程和Day 1差不多。</p>
+<p>早上去排限定周边，依旧很多人。不过天气很好，排队时感觉也很舒适。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_5739.jpeg" title="IMG_5739">
+
+<img src="/2020/01/31/东京之旅(2)/IMG_5741.jpeg" title="IMG_5741">
+
+<p>男祭周边红色衣服背后写了一句话“No more hero what you wanna be”，我很喜欢这句话，感觉十分热血。</p>
+<p>买完周边之后，趁着天气好，绕着东京巨蛋走了一圈。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_5747.jpeg" title="IMG_5747">
+
+<img src="/2020/01/31/东京之旅(2)/IMG_5756.jpeg" title="IMG_5756">
+
+<img src="/2020/01/31/东京之旅(2)/IMG_5763.jpeg" title="IMG_5763">
+
+<img src="/2020/01/31/东京之旅(2)/IMG_5769.jpeg" title="IMG_5769">
+
+<img src="/2020/01/31/东京之旅(2)/IMG_5770.jpeg" title="IMG_5770">
+
+<p>还顺便逛了一下超市。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_5772.jpeg" title="IMG_5772">
+
+<img src="/2020/01/31/东京之旅(2)/IMG_5773.jpeg" title="IMG_5773">
+
+<p>还买了一杯珍珠奶茶，我也不知道为什么日本人流行喝珍珠奶茶……</p>
+<p>PS：支付宝好评 ～ 虽说我用的是硬币。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_5775.jpeg" title="IMG_5775">
+
+<p>巨蛋游乐园 ～</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_5776.jpeg" title="IMG_5776">
+
+<p>逛完一圈后，休息一下，就要入场了。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_5780.jpeg" title="IMG_5780">
+
+<p>今天海外的饭也是一排，我隔壁海外饭有点像中东那边的肤色，吓到我了。不过还是很开心，最后《MONDO PIECE》的时候和他肩搭肩了😂😂😂气氛很好。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_0534.jpeg" title="IMG_0534">
+
+<p>男性观众的热情还是高啊 ！结束之后我们还迟迟都不走。 </p>
+<img src="/2020/01/31/东京之旅(2)/IMG_3412.jpeg" title="IMG_3412">
+
+<p>出场馆之后，联系了歌迷jiro君、saya君和OO君（😂因为我也不知道他的称呼）一起去了浅草桥附近的居酒屋～～～</p>
+<p>虽说居酒屋要喝酒，但不喜欢酒精的我选择了橙汁……不过炸鸡真的很好吃。</p>
+<img src="/2020/01/31/东京之旅(2)/IMG_8806.jpeg" title="IMG_8806">
+
+<p>我们几个歌迷们一起聊天，不知不觉聊到了凌晨3点，实在是太多话题了。能认识到他们实在是太好了 ！</p>
+<p>凌晨3点,没有电车回去了，我只能从浅草桥走回东京巨蛋。</p>
+<p>空无一人的街道。</p>
+
+
+<img src="/2020/01/31/东京之旅(2)/IMG_5795.jpeg" title="IMG_5795">
+
+<img src="/2020/01/31/东京之旅(2)/IMG_5799.jpeg" title="IMG_5799">
+
+<p>回到酒店，太困了，躺下就睡着了。就这样结束了两天演唱会的日子Zzz</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2020/01/31/东京之旅(3)/" title="东京之旅(3)">
+                    <div class="nextTitle">东京之旅(3)</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2020/01/31/东京之旅(1)/" title="东京之旅(1)">
+                    <div class="prevTitle">东京之旅(1)</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <!-- <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div> -->
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <!-- <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span>
+        </span> -->
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#12月19日-12月20日-演唱会日"><span class="toc-number">1.</span> <span class="toc-text">12月19日 - 12月20日 演唱会日</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-1"><span class="toc-number">1.1.</span> <span class="toc-text">Day 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-2"><span class="toc-number">1.2.</span> <span class="toc-text">Day 2</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 19 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/17</span><a class="archive-post-title" href="/2020/08/17/业余时间/">业余时间</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/12</span><a class="archive-post-title" href="/2020/07/12/7月12日/">7月12日</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/25</span><a class="archive-post-title" href="/2020/06/25/半年/">疫情半年</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2020/05/10/三年/">三年</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/31</span><a class="archive-post-title" href="/2020/01/31/东京之旅(1)/">东京之旅(1)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/31</span><a class="archive-post-title" href="/2020/01/31/东京之旅(2)/">东京之旅(2)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/31</span><a class="archive-post-title" href="/2020/01/31/东京之旅(3)/">东京之旅(3)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/31</span><a class="archive-post-title" href="/2020/01/31/东京之旅(4)/">东京之旅(4)</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href="/2019/12/15/出发前去东京的准备/">出发前去东京的准备</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/09</span><a class="archive-post-title" href="/2019/12/09/高中同学聚会/">高中同学聚会</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href="/2019/11/20/生日/">生日</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href="/2019/11/07/关于爱情观、婚姻观/">关于爱情观、婚姻观</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href="/2019/09/26/一个月的996后/">一个月的996后</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href="/2019/09/14/能力、不安、迷茫/">能力、不安、迷茫</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/06</span><a class="archive-post-title" href="/2019/09/06/新环境/">新环境</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href="/2019/07/07/活着/">活着</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/11</span><a class="archive-post-title" href="/2019/06/11/朋友/">朋友</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href="/2019/06/09/家/">家</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href="/2019/05/24/前言/">前言</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="生活"><span class="iconfont-archer">&#xe606;</span>生活</span>
+    
+        <span class="sidebar-tag-name" data-tags="人生阅读"><span class="iconfont-archer">&#xe606;</span>人生阅读</span>
+    
+        <span class="sidebar-tag-name" data-tags="前言"><span class="iconfont-archer">&#xe606;</span>前言</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="生活"><span class="iconfont-archer">&#xe60a;</span>生活</span>
+    
+        <span class="sidebar-category-name" data-categories="人生阅读"><span class="iconfont-archer">&#xe60a;</span>人生阅读</span>
+    
+        <span class="sidebar-category-name" data-categories="前言"><span class="iconfont-archer">&#xe60a;</span>前言</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: '/',
+        author: 'Crimson'
+    }
+</script>
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+    
+    </body>
+</html>
+
+
